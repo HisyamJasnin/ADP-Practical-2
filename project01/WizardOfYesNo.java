@@ -1,5 +1,7 @@
 package project01;
 
+import java.util.Random;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -7,13 +9,20 @@ import javafx.stage.Stage;
 
 public class WizardOfYesNo extends Application {
 	
-	private static final String ANSWER ="No";
-
+	private static final String[] ANSWER = {
+			"Yes",
+			"No"
+	};
+	
 	@Override
 	public void start(Stage arg0) throws Exception {
-		// Create the Label object
-		Label label = new Label("");
-		label.setText(ANSWER);
+		Random rand = new Random();
+		int numberOfAnswers = ANSWER.length;
+		int pick = rand.nextInt(numberOfAnswers);
+		String answer = ANSWER[pick];
+		
+		Label label = new Label();
+		label.setText(answer);
 		
 		// Create the Scene object and add Label object into it.
 		// Add width and height for window size
