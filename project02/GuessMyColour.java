@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.*;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
@@ -31,6 +33,22 @@ public class GuessMyColour extends Application {
 		titleLabel.setText("Guess My Colour");
 		BorderPane rootPane = new BorderPane();
 		rootPane.setTop(titleLabel);
+		
+		Rectangle centerRectangle = new Rectangle(0, 0 , 50, 50);
+		centerRectangle.setFill(Color.BLUE);
+		rootPane.setCenter(centerRectangle);
+		
+		Rectangle leftRectangle = new Rectangle(0, 0 , 50, 50);
+		leftRectangle.setFill(Color.RED);
+		rootPane.setLeft(leftRectangle);
+		
+		Rectangle rightRectangle = new Rectangle(0, 0 , 50, 50);
+		rightRectangle.setFill(Color.GREEN);
+		rootPane.setRight(rightRectangle);
+		
+		Rectangle bottomRectangle = new Rectangle(0, 0 , 50, 50);
+		bottomRectangle.setFill(Color.YELLOW);
+		rootPane.setBottom(bottomRectangle);
 		
 		Scene root = new Scene(rootPane);
 		arg0.setScene(root);
