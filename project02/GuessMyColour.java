@@ -1,5 +1,7 @@
 package project02;
 
+import java.util.Random;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -31,6 +33,10 @@ public class GuessMyColour extends Application {
 	private Rectangle sampleRectangle = new Rectangle();
 	private Rectangle targetRectangle = new Rectangle();
 	
+	private int targetRed = 0;
+	private int targetGreen = 0;
+	private int targetBlue = 0;
+	
 	public void initGUI(Stage arg0) {
 		Label titleLabel = new Label();
 		Font titleFont = Font.font("Serif", FontWeight.BOLD, 32);
@@ -56,9 +62,21 @@ public class GuessMyColour extends Application {
 		centerPane.getChildren().add(targetRectangle);
 		centerPane.setAlignment(Pos.CENTER);
 		rootPane.setCenter(centerPane);
+		
+		generateTargetColour();
 
 		Scene root = new Scene(rootPane);
 		arg0.setScene(root);
+	}
+	
+	private void generateTargetColour() {
+		Random rand = new Random();
+		targetRed = rand.nextInt(18) * 15;
+		targetGreen = rand.nextInt(18) * 15;
+		targetBlue = rand.nextInt(18) * 15;
+		
+		Color targetColour = Color.rgb(targetRed, targetGreen, targetBlue);
+		targetRectangle.setFill(targetColour);
 	}
 	
 	
