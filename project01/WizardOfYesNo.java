@@ -6,11 +6,14 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class WizardOfYesNo extends Application {
+	
+	private static final String ANSWER ="No";
 
 	@Override
 	public void start(Stage arg0) throws Exception {
 		// Create the Label object
-		Label label = new Label("Hello World");
+		Label label = new Label("");
+		label.setText(ANSWER);
 		
 		// Create the Scene object and add Label object into it.
 		// Add width and height for window size
