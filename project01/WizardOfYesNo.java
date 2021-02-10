@@ -11,8 +11,18 @@ import javafx.scene.text.*;
 public class WizardOfYesNo extends Application {
 	
 	private static final String[] ANSWER = {
-			"Yes",
-			"No"
+			"Yes.",
+			"Go for it!",
+			 "Yes, definitely.",
+			 "For sure!",
+			 "I would say yes.",
+			 "Most likely yes.",
+			 "No.",
+			 "I wouldn't.",
+			 "In my opinion, no.",
+			 "Definitely not!",
+			 "Probably not.",
+			 "It is very doubtful."
 	};
 	
 	@Override
@@ -34,11 +44,13 @@ public class WizardOfYesNo extends Application {
 		
 		// Create the Scene object and add Label object into it.
 		// Add width and height for window size
-		Scene root = new Scene(label, 200, 100);
+		Scene root = new Scene(label);
 		
 		//Set Stage to use the Scene object
 		arg0.setScene(root);
-		
+		arg0.sizeToScene();
+		arg0.setResizable(false);
+		arg0.setTitle("Wizard of Yes/No");
 		arg0.show();
 		
 	}
