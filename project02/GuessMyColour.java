@@ -4,7 +4,10 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.*;
@@ -25,31 +28,35 @@ public class GuessMyColour extends Application {
 		
 	}
 	
+	private Rectangle sampleRectangle = new Rectangle();
+	private Rectangle targetRectangle = new Rectangle();
+	
 	public void initGUI(Stage arg0) {
 		Label titleLabel = new Label();
 		Font titleFont = Font.font("Serif", FontWeight.BOLD, 32);
 		titleLabel.setFont(titleFont);
 		titleLabel.setAlignment(Pos.CENTER);
 		titleLabel.setText("Guess My Colour");
+		titleLabel.setBackground(new Background(new BackgroundFill(Color.BLACK, null ,null)));
+		titleLabel.setTextFill(Color.WHITE);
 		BorderPane rootPane = new BorderPane();
+		titleLabel.prefWidthProperty().bind(rootPane.widthProperty());
 		rootPane.setTop(titleLabel);
 		
-		Rectangle centerRectangle = new Rectangle(0, 0 , 50, 50);
-		centerRectangle.setFill(Color.BLUE);
-		rootPane.setCenter(centerRectangle);
+		sampleRectangle.setWidth(50);
+		sampleRectangle.setHeight(50);
+		sampleRectangle.setFill(Color.BLACK);
 		
-		Rectangle leftRectangle = new Rectangle(0, 0 , 50, 50);
-		leftRectangle.setFill(Color.RED);
-		rootPane.setLeft(leftRectangle);
+		targetRectangle.setWidth(50);
+		targetRectangle.setHeight(50);
+		targetRectangle.setFill(Color.CYAN);
 		
-		Rectangle rightRectangle = new Rectangle(0, 0 , 50, 50);
-		rightRectangle.setFill(Color.GREEN);
-		rootPane.setRight(rightRectangle);
-		
-		Rectangle bottomRectangle = new Rectangle(0, 0 , 50, 50);
-		bottomRectangle.setFill(Color.YELLOW);
-		rootPane.setBottom(bottomRectangle);
-		
+		FlowPane centerPane = new FlowPane();
+		centerPane.getChildren().add(sampleRectangle);
+		centerPane.getChildren().add(targetRectangle);
+		centerPane.setAlignment(Pos.CENTER);
+		rootPane.setCenter(centerPane);
+
 		Scene root = new Scene(rootPane);
 		arg0.setScene(root);
 	}
